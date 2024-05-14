@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ public class MemberRepositoryTest {
 
     @Test
     @Transactional //추가해줌
+    @Rollback(false) //실제 db에 저장되는 것을 보여줌. 이 어노테이션 없으면 롤백해서 데이터 다 사라짐
     public void testMember() throws Exception{
         //given
         Member member = new Member();
