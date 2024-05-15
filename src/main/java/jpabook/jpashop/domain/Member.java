@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Member {
