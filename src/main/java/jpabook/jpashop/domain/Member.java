@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.util.ArrayList;
+
 @Entity
 public class Member {
 
@@ -11,4 +13,5 @@ public class Member {
     private Long id;
     private String name;
     private Address address;
+    private List<Order> orders = new ArrayList<>();
 }
