@@ -41,11 +41,4 @@ public class Order {
         member.getOrders().add(this);
     }
 
-    public static void main(String[] args) {
-        Member member = new Member();
-        Order order = new Order();
-
-        member.getOrders().add(order);
-        order.setMember(member);
-    }
 }
