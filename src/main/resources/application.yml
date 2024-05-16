@@ -11,9 +11,8 @@ spring:
 
     properties:
       hibernate:
-        #show_sql: true 시스템 아웃으로 출력됨 -> 사용 지양
+        show_sql: true #시스템 아웃으로 출력됨 -> 사용 지양
         format_sql: true
-
 
 logging:
   level:
