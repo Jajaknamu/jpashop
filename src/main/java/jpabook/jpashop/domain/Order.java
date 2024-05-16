@@ -34,4 +34,17 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status; //주문상태 ORDER, CANCEL
+
+    //연관관계 (편의)메서드
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public static void main(String[] args) {
+        Member member = new Member();
+        Order order = new Order();
+
+        member.getOrders().add(order);
+        order.setMember(member);
+    }
 }
