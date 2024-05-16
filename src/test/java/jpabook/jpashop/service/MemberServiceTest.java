@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jakarta.persistence.EntityManager;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
 import org.junit.Test;
@@ -17,6 +18,7 @@ public class MemberServiceTest {
 
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
+
     @Test
     public void 회원가입() throws Exception{
         //given
@@ -29,9 +31,22 @@ public class MemberServiceTest {
         //then
         assertEquals(member, memberRepository.findOne(saveId));
     }
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void 중복_회원_예외() throws Exception{
 
+        //given
+        Member member1 = new Member();
+        member1.setName("Kim");
+
+        Member member2 = new Member();
+        member2.setName("Kim");
+
+        //when
+        memberService.join(member1);
+        memberService.join(member2); //예외 발생해야함
+
+        //then
+        fail("예외가 발생해야 한다");
     }
 
 }
