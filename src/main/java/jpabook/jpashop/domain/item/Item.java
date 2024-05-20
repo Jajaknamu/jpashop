@@ -24,10 +24,9 @@ public class Item {
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<Category>();
 
     //비즈니스 로직 추가
-
     /**
      * stock 증가
      */
@@ -39,7 +38,7 @@ public class Item {
      * stock 감소
      */
     public void removeStock(int quantity) {
-        int restStock = this.stockQuantity = quantity;
+        int restStock = this.stockQuantity - quantity;
         if(restStock < 0){
             throw new NoEnoughStockException("need more stock");
         }
