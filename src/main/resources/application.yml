@@ -14,6 +14,10 @@ spring:
         show_sql: true #시스템 아웃으로 출력됨 -> 사용 지양
         format_sql: true
 
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
 logging:
   level:
     org.hibernate.sql: debug #로거를 통해서 출력하는게 좋음
