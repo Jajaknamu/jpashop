@@ -52,7 +52,7 @@ public class ItemController {
      * @param model
      * @return
      */
-    @GetMapping(value = "/item/{itemId}/edit")
+    @GetMapping(value = "/items/{itemId}/edit")
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
         Book item =(Book) itemService.findOne(itemId);
 
@@ -68,9 +68,8 @@ public class ItemController {
         return "items/updateItemForm";
 
     }
-
     /**
-     * 상품 수정 폼
+     * 상품 수정
      * @param form
      * @return
      */
