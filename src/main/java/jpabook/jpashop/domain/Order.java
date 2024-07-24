@@ -22,7 +22,7 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id") //포린키(FK) 이름이 member_id가 됨
     private Member member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)

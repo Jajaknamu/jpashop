@@ -14,6 +14,7 @@ public class Delivery {
     @Column(name = "delivery_id")
     private Long id;
 
+    //XToOne은 항상 LAZY로 설정할 것. n+1이슈 생김 방지해줌
     @OneToOne(mappedBy = "delivery", fetch = LAZY)
     private Order order;
 

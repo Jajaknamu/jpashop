@@ -31,7 +31,7 @@ public class MemberServiceTest {
         //then
         assertEquals(member, memberRepository.findOne(saveId));
     }
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = IllegalStateException.class) //try catch문 대신 쓴 어노테이션
     public void 중복_회원_예외() throws Exception{
 
         //given

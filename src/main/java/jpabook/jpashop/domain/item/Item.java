@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "dtype")
+@DiscriminatorColumn(name = "dtype") //값타입 싱글테이블이여서 볼때 구분하는거
 @Getter @Setter
 public class Item {
 
