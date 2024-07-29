@@ -1,5 +1,6 @@
 package jpabook.jpashop.exception;
 
+//오버라이드 하는 이유 :
 public class NoEnoughStockException extends RuntimeException{
     public NoEnoughStockException() {
         super();

@@ -28,14 +28,14 @@ public class Item {
 
     //비즈니스 로직 추가
     /**
-     * stock 증가
+     * stock 증가 - 재고증가
      */
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }
 
     /**
-     * stock 감소
+     * stock 감소 - 재고감소
      */
     public void removeStock(int quantity) {
         int restStock = this.stockQuantity - quantity;
@@ -44,4 +44,6 @@ public class Item {
         }
         this.stockQuantity = restStock;
     }
+    //stockQuantity를 변경할 일이 있으면 addStock(),removeStock() 같은 메소드를 사용해서 변경해야 함
+    //setter사용 보단 비즈니스 로직 사용 권장
 }

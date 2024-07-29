@@ -21,14 +21,14 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    //조회
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
-
+    //단건 조회
     public Item findOne(Long itemId) {
         return itemRepository.findOne(itemId);
     }
-
     /**
      * 영속성 컨텍스트가 자동 변경
      * @param id
