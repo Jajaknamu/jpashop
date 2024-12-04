@@ -20,6 +20,7 @@ public class OrderRepository {
 
     private final EntityManager em;
 
+    //주문 저장
     public void save(Order order) {
         em.persist(order);
     }
@@ -29,6 +30,7 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
+    //모든 주문 조회
     public List<Order> findAll(OrderSearch orderSearch) {
         String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;

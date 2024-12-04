@@ -20,12 +20,14 @@ import java.util.List;
 public class ItemController {
     private final ItemService itemService;
 
+    //상품 등록 페이지 호출
     @GetMapping("/items/new")
     public String createForm(Model model) {
         model.addAttribute("form", new BookForm());
         return "items/createItemForm";
     }
 
+    //상품 등록 정보 받아옴
     @PostMapping("/items/new")
     public String create(BookForm form) {
         Book book = new Book();
@@ -39,6 +41,7 @@ public class ItemController {
         return "redirect:/items";
     }
 
+    //상품 목록 페이지 호출
     @GetMapping("/items")
     public String list(Model model) {
         List<Item> items = itemService.findItems();

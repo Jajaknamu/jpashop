@@ -24,6 +24,7 @@ public class OrderController {
     private final MemberService memberService;
     private final ItemService itemService;
 
+    //상품 주문 페이지 호출 -> 등록된 회원, 아이템 보여짐
     @GetMapping("/order")
     public String createForm(Model model) {
 
@@ -35,7 +36,7 @@ public class OrderController {
 
         return "order/orderForm";
     }
-
+    //상품 주문 폼 정보 받아서 넘어온거 저장 -> 멤버id, 아이템id, 수량
     @PostMapping("/order")
     public String order(@RequestParam("memberId") Long memberId,
                         @RequestParam("itemId") Long itemId,
@@ -45,6 +46,7 @@ public class OrderController {
         return "redirect:/orders";
     }
 
+    //주문 내역 페이지 호출 -> 주문 내역 리스트 보임
     @GetMapping("/orders")
     public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
 
@@ -54,6 +56,7 @@ public class OrderController {
         return "order/orderList";
     }
 
+    //주문 취소
     @PostMapping("/orders/{orderId}/cancel")
     public String cancelOrder(@PathVariable("orderId") Long orderId) {
         orderService.cancelOrder(orderId);

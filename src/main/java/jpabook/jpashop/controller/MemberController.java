@@ -19,12 +19,14 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    //회원가입 페이지 호출
     @GetMapping("/members/new")
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
     }
 
+    //회원 가입 정보 폼으로 받아서 넘어온거 저장
     @PostMapping("/members/new")
     public String create(@Valid MemberForm form, BindingResult result) {
 
@@ -42,6 +44,7 @@ public class MemberController {
         return "redirect:/";
     }
 
+    //회원 목록 페이지 호출 -> 모든 회원 목록 보임
     @GetMapping("/members")
     public String list(Model model) {
         model.addAttribute("members", memberService.findMembers()); //inline으로 합침
